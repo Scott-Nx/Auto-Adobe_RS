@@ -1,0 +1,26 @@
+name: Test
+
+on:
+  push:
+    paths:
+      - 'src/main.rs'
+  pull_request:
+    paths:
+      - 'src/main.rs'
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: --all-features
