@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  schedule:
+    - cron: "0 22 1 * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Create .env file
+        run: |
+          echo "KMUTNB_USERNAME=${{ secrets.KMUTNB_USERNAME }}" >> .env
+          echo "KMUTNB_PASSWORD=${{ secrets.KMUTNB_PASSWORD }}" >> .env
+
+      - uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: --release
