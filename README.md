@@ -2,7 +2,7 @@
 
 Automate your sign-in to the KMUTNB Software Center and trigger an Adobe license reservation in one shot.
 
-This repository contains a minimal Python script that:
+This repository contains a minimal Rust script that:
 - Loads your credentials from environment variables.
 - Logs in to `https://software.kmutnb.ac.th/login/`.
 
