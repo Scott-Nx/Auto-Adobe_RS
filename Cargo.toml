@@ -1,0 +1,9 @@
+[package]
+name = "Auto-Adobe_RS"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+dotenv = "0.15"
+reqwest = { version = "0.12", features = ["blocking", "cookies"] }
+chrono = "0.4"
